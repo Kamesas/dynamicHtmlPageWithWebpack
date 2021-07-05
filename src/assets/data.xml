@@ -1,7 +1,7 @@
 <?xml version="1.0" enconding="UTF-8"?>
 <email>
-    <to>Evgeniy</to>
+    <to>Alex</to>
     <from>Webpack</from>
-    <heading>Course</heading>
+    <heading>Dynameic html page</heading>
     <body>text</body>
 </email>

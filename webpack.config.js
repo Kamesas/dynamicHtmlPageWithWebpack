@@ -109,11 +109,6 @@ const plugins = () => {
     new MiniCssExtractPlugin({
       filename: filename('css'),
     }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-    }),
   ]
 
   return base
@@ -123,7 +118,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: ['@babel/polyfill', './index.jsx'],
+    main: ['@babel/polyfill', './index.js'],
   },
   output: {
     filename: filename('js'),
@@ -157,12 +152,6 @@ module.exports = {
         use: cssLoaders('sass-loader'),
         exclude: /\.module\.scss$/,
       },
-      // Loading LESS
-      {
-        test: /\.(less)$/,
-        use: cssLoaders('less-loader'),
-      },
-      // Loading CSS modules
       {
         use: [
           MiniCssExtractPlugin.loader,
@@ -230,15 +219,6 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: babelOptions('@babel/preset-typescript'),
-        },
-      },
-      // Babel REACT
-      {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: babelOptions('@babel/preset-react'),
         },
       },
     ],
